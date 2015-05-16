@@ -1,0 +1,23 @@
+udp_send_channel {
+<% if !@udp_send_mcast_join.eql?('') then-%>
+  mcast_join = <%= @udp_send_mcast_join %>
+<% end -%>
+<% if !@udp_send_mcast_if.eql?('') then-%>
+  mcast_if = <%= @udp_send_mcast_if %>
+<% end -%>
+<% if !@udp_send_host.eql?('') then-%>
+  host = <%= @udp_send_host %>
+<% end -%>
+<% if !@udp_send_port.eql?('') then-%>
+  port = <%= @udp_send_port %>
+<% end -%>
+<% if !@udp_send_ttl.eql?('') then-%>
+  ttl = <%= @udp_send_ttl %>
+<% end -%>
+<% if !@udp_send_bind.eql?('') then-%>
+  bind = <%= @udp_send_bind %>
+<% end -%>
+<% if !@udp_send_bind_hostname.eql?('') then-%>
+  bind_hostname = <%= @udp_send_bind_hostname %>
+<% end -%>
+}

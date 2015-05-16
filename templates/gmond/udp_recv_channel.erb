@@ -1,0 +1,15 @@
+<% if !@udp_recv_mcast_join.eql?('') then-%>
+  mcast_join = <%= @udp_recv_mcast_join %>
+<% end -%>
+<% if !@udp_recv_bind.eql?('') then-%>
+  bind = <%= @udp_recv_bind %>
+<% end -%>
+<% if !@udp_recv_port.eql?('') then-%>
+  port = <%= @udp_recv_port %>
+<% end -%>
+<% if !@udp_recv_mcast_if.eql?('') then-%>
+  mcast_if = <%= @udp_recv_mcast_if %>
+<% end -%>
+<% if !@udp_recv_family.eql?('') then-%>
+  family = <%= @udp_recv_family %>
+<% end -%>

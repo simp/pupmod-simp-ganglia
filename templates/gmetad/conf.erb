@@ -1,0 +1,16 @@
+debug_level <%= @debug_level %>
+RRAs<% @rras.each { |lrra| %> "<%= lrra %>"<% } %>
+scalable <%= @scalable %>
+<% if not (@gridname.eql?('') or @gridname.eql?('unspecified')) then -%>
+gridname "<%= @gridname %>"
+<% end -%>
+authority "<%= @authority %>"
+trusted_hosts<% @trusted_hosts.each { |lth| %> <%= lth %><% } %>
+all_trusted <%= @all_trusted %>
+setuid <%= @setuid %>
+setuid_username "<%= @setuid_username %>"
+xml_port <%= @xml_port %>
+interactive_port <%= @interactive_port %>
+server_threads <%= @server_threads %>
+rrd_rootdir "<%= @rrd_rootdir %>"
+case_sensitive_hostnames <%= @case_sensitive_hostnames %>

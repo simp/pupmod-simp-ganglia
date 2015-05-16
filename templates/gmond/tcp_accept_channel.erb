@@ -1,0 +1,15 @@
+<% if !@tcp_accept_bind.eql?('') then-%>
+  bind = <%= @tcp_accept_bind %>
+<% end -%>
+<% if !@tcp_accept_port.eql?('') then-%>
+  port = <%= @tcp_accept_port %>
+<% end -%>
+<% if !@tcp_accept_interface.eql?('') then-%>
+  interface = <%= @tcp_accept_interface %>
+<% end -%>
+<% if !@tcp_accept_family.eql?('') then-%>
+  family = <%= @tcp_accept_family %>
+<% end -%>
+<% if !@tcp_accept_timeout.eql?('') then-%>
+  timeout = <%= @tcp_accept_timeout %>
+<% end -%>

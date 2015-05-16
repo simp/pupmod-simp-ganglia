@@ -1,0 +1,304 @@
+<%= "<?php" %>
+# $Id: conf.php.in 2194 2010-01-08 16:58:25Z d_pocock $
+#
+# Gmetad-webfrontend version. Used to check for updates.
+#
+$conf['ganglia_dir'] = dirname(__FILE__);
+
+include_once $conf['ganglia_dir'] . "/version.php";
+
+#
+# 'readonly': No authentication is required.  All users may view all resources.  No edits are allowed.
+#  'enabled': Guest users may view public clusters.  Login is required to make changes.  
+#             An administrator must configure an authentication scheme and ACL rules.
+# 'disabled': Guest users may perform any actions, including edits.  No authentication is required.
+$conf['auth_system'] = '<%= @auth_system %>';
+
+#
+# The name of the directory in "./templates" which contains the
+# templates that you want to use. Templates are like a skin for the
+# site that can alter its look and feel.
+#
+$conf['template_name'] = "<%= @template_name %>";
+
+#
+# If you installed gmetad in a directory other than the default
+# make sure you change it here.
+#
+
+# Where gmetad stores the rrd archives.
+$conf['gmetad_root'] = "<%= @gmetad_root %>";
+$conf['rrds'] = "<%= @rrds %>";
+
+# Where Dwoo (PHP templating engine) store compiled templates
+$conf['dwoo_compiled_dir'] = "<%= @dwoo_compiled_dir %>";
+
+# Where to store web-based configuration
+$conf['views_dir'] = "<%= @views_dir %>";
+$conf['conf_dir'] = "<%= @conf_dir %>";
+
+# Where to find filter configuration files, if not set filtering
+# will be disabled
+#$conf['filter_dir'] = "${conf['gmetad_root']}/filters";
+
+# Leave this alone if rrdtool is installed in $conf['gmetad_root'],
+# otherwise, change it if it is installed elsewhere (like /usr/bin)
+$conf['rrdtool'] = "<%= @rrdtool %>";
+
+# Render graphs with rrdtool's --slope-mode option
+$conf['rrdtool_slope_mode'] = <%= @rrdtool_slope_mode %>;
+
+# If rrdcached is being used, this argument must specify the 
+# socket to use.
+#
+# gweb only requires, and should use, the low-privilege socket
+# created with the -L option to rrdcached.  gmetad requires, and must use,
+# the fully privileged socket created with the -l option to rrdcached.
+$conf['rrdcached_socket'] = "<%= @rrdcached_socket %>";
+
+# Location for modular-graph files.
+$conf['graphdir'] = '<%= @graphdir %>';
+
+# Display statistical values on RRD graphs; i.e.: average, min, max
+$conf['graphreport_stats'] = <%= @graphreport_stats %>;
+
+#
+# If you want to grab data from a different ganglia source specify it here.
+# Although, it would be strange to alter the IP since the Round-Robin
+# databases need to be local to be read. 
+#
+$conf['ganglia_ip'] = "<%= @ganglia_ip %>";
+$conf['ganglia_port'] = <%= @ganglia_port %>;
+
+#
+# The maximum number of dynamic graphs to display.  If you set this
+# to 0 (the default) all graphs will be shown.  This option is
+# helpful if you are viewing the web pages from a browser with a 
+# small pipe.
+#
+$conf['max_graphs'] = <%= @max_graphs %>;
+
+#
+# In the Cluster View this sets the default number of columns used to
+# display the host grid below the summary graphs.
+#
+$conf['hostcols'] = <%= @hostcols %>;
+
+#
+# In the Host View this sets the default number of columns used to
+# display the metric grid below the summary graphs.
+#
+$conf['metriccols'] = <%= @metriccols %>;
+
+#
+# Turn on and off the Grid Snapshot. Now that we have a
+# hierarchical snapshot (per-cluster instead of per-node) on
+# the meta page this makes more sense. Most people will want this
+# on.
+#
+$conf['show_meta_snapshot'] = "<%= @show_meta_snapshot %>";
+
+# 
+# The default refresh frequency on pages.
+#
+$conf['default_refresh'] = <%= @default_refresh %>;
+
+#
+# Colors for the CPU report graph
+#
+$conf['cpu_user_color'] = "<%= @cpu_user_color %>";
+$conf['cpu_nice_color'] = "<%= @cpu_nice_color %>";
+$conf['cpu_system_color'] = "<%= @cpu_system_color %>";
+$conf['cpu_wio_color'] = "<%= @cpu_wio_color %>";
+$conf['cpu_idle_color'] = "<%= @cpu_idle_color %>";
+
+#
+# Colors for the MEMORY report graph
+#
+$conf['mem_used_color'] = "<%= @mem_used_color %>";
+$conf['mem_shared_color'] = "<%= @mem_shared_color %>";
+$conf['mem_cached_color'] = "<%= @mem_cached_color %>";
+$conf['mem_buffered_color'] = "<%= @mem_buffered_color %>";
+$conf['mem_free_color'] = "<%= @mem_free_color %>";
+$conf['mem_swapped_color'] = "<%= @mem_swapped_color %>";
+
+#
+# Colors for the LOAD report graph
+#
+$conf['load_one_color'] = "<%= @load_one_color %>";
+$conf['proc_run_color'] = "<%= @proc_run_color %>";
+$conf['cpu_num_color'] = "<%= @cpu_num_color %>";
+$conf['num_nodes_color'] = "<%= @num_nodes_color %>";
+
+# Other colors
+$conf['jobstart_color'] = "<%= @jobstart_color %>";
+
+#
+# Colors for the load ranks.
+#
+$conf['load_colors'] = array(
+   "100+" <%= "=>" %> "<%= @load_colors_100 %>",
+   "75-100" <%= "=>" %> "<%= @load_colors_75_100 %>",
+   "50-75" <%= "=>" %> "<%= @load_colors_50_75 %>",
+   "25-50" <%= "=>" %> "<%= @load_colors_25_50 %>",
+   "0-25" <%= "=>" %> "<%= @load_colors_0_25 %>",
+   "down" <%= "=>" %> "<%= @load_colors_down %>"
+);
+
+#
+# Load scaling
+#
+$conf['load_scale'] = <%= @load_scale %>;
+
+#
+# Default color for single metric graphs
+#
+$conf['default_metric_color'] = "<%= @default_metric_color %>";
+
+#
+# Default metric 
+#
+$conf['default_metric'] = "<%= @default_metric %>";
+
+#
+# remove the domainname from the FQDN hostnames in graphs
+# (to help with long hostnames in small charts)
+#
+$conf['strip_domainname'] = <%= @strip_domainname %>;
+
+#
+# Optional summary graphs
+#
+#$conf['optional_graphs'] = array('packet');
+
+# Enable Zoom support on graphs
+$conf['zoom_support'] = <%= @zoom_support %>;
+
+# 
+# Time ranges
+# Each value is the # of seconds in that range.
+#
+$conf['time_ranges'] = array(
+   'hour'<%= "=>" %>3600,
+   '2hr'<%= "=>" %>7200,
+   '4hr'<%= "=>" %>14400,
+   'day'<%= "=>" %>86400,
+   'week'<%= "=>" %>604800,
+   'month'<%= "=>" %>2419200,
+   'year'<%= "=>" %>31449600
+);
+
+# this key must exist in $conf['time_ranges']
+$conf['default_time_range'] = '<%= @default_time_range %>';
+
+# Graph Engine to use
+$conf['graph_engine'] = "<%= @graph_engine %>";
+
+#$conf['graph_engine'] = "graphite";
+$conf['graphite_url_base'] = "<%= @graphite_url_base %>";
+$conf['graphite_rrd_dir'] = "<%= @graphite_rrd_dir %>";
+
+# One of the bottlenecks is that to get individual metrics we query gmetad which
+# returns every single host and all the metrics. If you have lots of hosts and lots of 
+# checks this may be quite heavy so you may want to cache data
+$conf['cachedata'] = <%= @cachedata %>;
+$conf['cachefile'] = "<%= @cachefile %>";
+$conf['cachetime'] = <%= @cachetime %>; // How long to cache the data in seconds
+
+#
+# Graph sizes
+#
+$conf['graph_sizes'] = array(
+   'small'<%= "=>" %>array(
+     'height'<%= "=>" %><%= @graph_size_small_height %>,
+     'width'<%= "=>" %><%= @graph_size_small_width %>,
+     'fudge_0'<%= "=>" %><%= @graph_size_small_fudge_0 %>,
+     'fudge_1'<%= "=>" %><%= @graph_size_small_fudge_1 %>,
+     'fudge_2'<%= "=>" %><%= @graph_size_small_fudge_2 %>
+   ),
+   'medium'<%= "=>" %>array(
+     'height'<%= "=>" %><%= @graph_size_medium_height %>,
+     'width'<%= "=>" %><%= @graph_size_medium_width %>,
+     'fudge_0'<%= "=>" %><%= @graph_size_medium_fudge_0 %>,
+     'fudge_1'<%= "=>" %><%= @graph_size_medium_fudge_1 %>,
+     'fudge_2'<%= "=>" %><%= @graph_size_medium_fudge_2 %>
+   ),
+   'large'<%= "=>" %>array(
+     'height'<%= "=>" %><%= @graph_size_large_height %>,
+     'width'<%= "=>" %><%= @graph_size_large_width %>,
+     'fudge_0'<%= "=>" %><%= @graph_size_large_fudge_0 %>,
+     'fudge_1'<%= "=>" %><%= @graph_size_large_fudge_1 %>,
+     'fudge_2'<%= "=>" %><%= @graph_size_large_fudge_2 %>
+   ),
+   'xlarge'<%= "=>" %>array(
+     'height'<%= "=>" %><%= @graph_size_xlarge_height %>,
+     'width'<%= "=>" %><%= @graph_size_xlarge_width %>,
+     'fudge_0'<%= "=>" %><%= @graph_size_xlarge_fudge_0 %>,
+     'fudge_1'<%= "=>" %><%= @graph_size_xlarge_fudge_1 %>,
+     'fudge_2'<%= "=>" %><%= @graph_size_xlarge_fudge_2 %>
+   ),
+   'mobile'<%= "=>" %>array(
+     'height'<%= "=>" %><%= @graph_size_mobile_height %>,
+     'width'<%= "=>" %><%= @graph_size_mobile_width %>,
+     'fudge_0'<%= "=>" %><%= @graph_size_mobile_fudge_0 %>,
+     'fudge_1'<%= "=>" %><%= @graph_size_mobile_fudge_1 %>,
+     'fudge_2'<%= "=>" %><%= @graph_size_mobile_fudge_2 %>
+   ),
+   # this was the default value when no other size was provided.
+   'default'<%= "=>" %>array(
+     'height'<%= "=>" %><%= @graph_size_default_height %>,
+     'width'<%= "=>" %><%= @graph_size_default_width %>,
+     'fudge_0'<%= "=>" %><%= @graph_size_default_fudge_0 %>,
+     'fudge_1'<%= "=>" %><%= @graph_size_default_fudge_1 %>,
+     'fudge_2'<%= "=>" %><%= @graph_size_default_fudge_2 %>
+   )
+);
+$conf['default_graph_size'] = '<%= @default_graph_size %>';
+$conf['graph_sizes_keys'] = array_keys( $conf['graph_sizes'] );
+
+# In earlier versions of gmetad, hostnames were handled in a case
+# sensitive manner
+# If your hostname directories have been renamed to lower case,
+# set this option to 0 to disable backward compatibility.
+# From version 3.2, backwards compatibility will be disabled by default.
+# default: true  (for gmetad < 3.2)
+# default: false (for gmetad >= 3.2)
+$conf['case_sensitive_hostnames'] = <%= @case_sensitive_hostnames %>;
+
+# The following property controls whether the graphs contained in metric
+# groups are initially displayed or collapsed
+$conf['metric_groups_initially_collapsed'] = <%= @metric_groups_initially_collapsed %>;
+
+# Overlay events on graphs. Those are defined by specifying all the events
+# in events.json
+$conf['overlay_events'] = <%= @overlay_events %>;
+
+# If you have periodic events that happen often e.g. they will make the
+# graph poorly. By default we exclude events on monthly and yearly graphs
+$conf['overlay_events_exclude_ranges'] = <%= @overlay_events_exclude_ranges %>;
+
+# Overlay events line can be either dashed or solid. Use "solid" for solid
+# lines, anything else (including blanks) means a dashed line.
+$conf['overlay_events_line_type'] = "<%= @overlay_events_line_type %>";
+
+# What is the provider use to provide events. Currently only JSON files supported
+$conf['overlay_events_provider'] = "<%= @overlay_events_provider %>";
+# Where is the Overlay events file stored
+$conf['overlay_events_file'] = "<%= @overlay_events_file %>";
+
+# For event shading.  Value in hex, 'FF' = 100% opaque.
+# the _shade_ value should be less than _tick_
+$conf['overlay_events_tick_alpha'] = '<%= @overlay_events_tick_alpha %>';
+$conf['overlay_events_shade_alpha'] = '<%= @overlay_events_shade_alpha %>';
+
+# Colors to use e.g. in graph_colors
+$conf['graph_colors'] = <%= @graph_colors %>;
+
+$acl = GangliaAcl::getInstance();
+
+foreach (glob("acl/*.php") as $acl_file)
+{
+  include($acl_file);
+}
+
+<%= "?>"%>

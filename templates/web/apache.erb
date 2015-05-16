@@ -1,0 +1,116 @@
+<IfModule prefork.c>
+  LoadModule php5_module modules/libphp5.so
+</IfModule>
+
+<IfModule worker.c>
+  LoadModule php5_module modules/libphp5-zts.so
+</IfModule>
+
+AddHandler php5-script .php
+AddType text/html .php
+DirectoryIndex index.php
+
+LoadModule auth_digest_module modules/mod_auth_digest.so
+
+SetEnv ganglia_secret <%= @ganglia_secret %>
+
+<% if not (@ganglia_dir.nil? or @ganglia_dir.eql?('')) then -%>
+<Directory "<%= @ganglia_dir %>">
+<% else -%>
+<Directory "/var/www/html/ganglia/">
+<% end -%>
+  SSLRequireSSL
+</Directory>
+
+<% if not (@ganglia_port.nil? or @ganglia_port.eql?('')) then -%>
+<%  if @ganglia_listen then -%>
+Listen <%= @ganglia_port %>
+<%  end -%>
+NameVirtualHost *:<%= @ganglia_port %>
+<VirtualHost *:<%= @ganglia_port %>>
+<% else -%>
+Listen 4430
+NameVirtualHost *:4430
+<VirtualHost *:4430>
+<% end -%>
+
+<% if not (@ganglia_server_name.nil? or @ganglia_server_name.eql?('')) then -%>
+ServerName <%= @ganglia_server_name %>
+<% if not (@ganglia_dir.nil? or @ganglia_dir.eql?('')) then -%>
+DocumentRoot <%= @ganglia_dir %>
+<% else -%>
+DocumentRoot /var/www/html/ganglia/
+<% end
+end -%>
+SSLEngine on
+
+SSLProtocol <%= @ssl_protocols.map{|x| x !~ /^(\+|-|all)/i ? x = "+#{x}" : x = x}.join(' ') %>
+SSLCipherSuite <%= @ssl_cipher_suite.join(':') %>
+
+SSLCACertificatePath <%= @ssl_ca_certificate_path %>
+SSLCertificateFile <%= @ssl_certificate_file %>
+SSLCertificateKeyFile <%= @ssl_certificate_key_file %>
+SSLVerifyClient <%= @ssl_verify_client %>
+SSLVerifyDepth  <%= @ssl_verify_depth %>
+
+<% if not (@ganglia_dir.nil? or @ganglia_dir.eql?('')) then -%>
+<Directory "<%= @ganglia_dir %>">
+<% else -%>
+<Directory "/var/www/html/ganglia/">
+<% end -%>
+    Options -Indexes FollowSymLinks
+    AuthName "<%= @auth_name %>"
+<% if not @ldap_auth and not @auth_type.eql?('None') then -%>
+    AuthType <%= @auth_type %>
+<%   if not (@auth_digest_domain.nil? or @auth_digest_domain.eql?('')) then -%>
+    AuthDigestDomain <%= @auth_digest_domain %>
+<%   elsif !(@auth_type.nil? or auth_type.eql?('')) and @auth_type.eql?('Digest') -%>
+    AuthDigestDomain /var/www/html/ganglia/
+<%   end -%>
+<%   if not (@auth_user_file.nil? or @auth_user_file.eql?('')) then -%>
+    AuthUserFile <%= @auth_user_file %>
+<%   else -%>
+    AuthUserFile /usr/local/apache/ganglia-passwords
+<%   end -%>
+<%
+   elsif @ldap_auth then
+# Use LDAP!
+-%>
+  AuthType Basic
+
+  AuthBasicProvider ldap
+<%   if @ldap_servers.empty? then
+    raise Puppet::ParseError.new("Error: You cannot have a blank $ldap_servers!")
+     end
+-%>
+  AuthLDAPUrl "ldap://<%= @ldap_servers %>/<%= @ldap_search %>" STARTTLS
+<%   if not (@ldap_binddn.nil? or @ldap_binddn.empty?) then -%>
+  AuthLDAPBindDN "<%= @ldap_binddn %>"
+  AuthLDAPBindPassword '<%= @ldap_bindpw.gsub(/'/, "\\\\'") %>'
+<%   end -%>
+<%   if not @ldap_group.empty? then -%>
+<%     if @posix_group then -%>
+  AuthLDAPGroupAttributeIsDN off
+  AuthLDAPGroupAttribute memberUid
+<%     end -%>
+  Require ldap-group <%= @ldap_group %>
+<%   else -%>
+  AuthzLDAPAuthoritative off
+<%   end -%>
+<% end -%>
+<% if not @auth_type.eql?('None') then -%>
+    Require valid-user
+<% end -%>
+<%
+  if not (@client_nets.nil? or @client_nets.eql?('')) then
+    Array(@client_nets).flatten.each do |lnet|
+-%>
+<%  if lnet.eql?('0.0.0.0/0') then -%>
+    Allow from all
+<%  else -%>
+    Allow from <%= lnet %>
+<%  end -%>
+<% end -%>
+<% end -%>
+</Directory>
+</VirtualHost>

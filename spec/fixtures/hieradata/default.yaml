@@ -1,0 +1,28 @@
+---
+ldap::base_dn : 'dc=bar,dc=baz'
+ldap::bind_dn : 'dn=ganglia,ou=People,dc=bar,dc=baz'
+ldap::bind_pw : 'passw0rd!'
+rsync::server : 'rsync.bar.baz'
+ganglia::monitor::add_includes::includes:
+  - '/etc/ganglia/conf.d/*.conf'
+ganglia::meta::conf::rras:
+  - 'RRA:AVERAGE:0.5:1:244'
+  - 'RRA:AVERAGE:0.5:24:244'
+  - 'RRA:AVERAGE:0.5:168:244'
+  - 'RRA:AVERAGE:0.5:672:244'
+  - 'RRA:AVERAGE:0.5:5760:374'
+  - 'RRA:MAX:0.5:4:244'
+  - 'RRA:MAX:0.5:96:244'
+  - 'RRA:MAX:0.5:672:244'
+  - 'RRA:MAX:0.5:2880:244'
+  - 'RRA:MAX:0.5:35040:374'
+ganglia::web::configure_php::views_dir: '/var/www/html/ganglia/conf'
+ganglia::web::configure_php::conf_dir: '/var/www/html/ganglia/conf'
+ganglia::web::configure_php::rrds: '/var/www/html/ganglia/conf/rrds'
+ganglia::web::configure_php::dwoo_compiled_dir: '/var/www/html/ganglia/conf/dwoo'
+ganglia::web::conf::ldap_servers: 'foo.example.domain'
+client_nets:
+  - '1.2.3.4/19'
+#ganglia::monitor::udp_recv_channel::add_acl_access:access_ip: '1.2.3.4'
+#ganglia::monitor::udp_recv_channel::add_acl_access:access_mask: '24'
+#ganglia::monitor::udp_recv_channel::add_acl_access:access_cidrs: '1.2.3.4/24'

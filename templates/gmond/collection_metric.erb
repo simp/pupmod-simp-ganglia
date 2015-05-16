@@ -1,0 +1,9 @@
+  metric {
+    name = "<%= @name %>"
+<% if !@metric_value_threshold.eql?('') then -%>
+    value_threshold = <%= @metric_value_threshold %>
+<% end -%>
+<% if !@metric_title.eql?('') then -%>
+    title = "<%= @metric_title %>"
+<% end -%>
+  }

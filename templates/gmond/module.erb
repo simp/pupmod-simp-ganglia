@@ -1,0 +1,25 @@
+  module {
+    name = "<%= @name %>"
+<% if !@mod_language.eql?('') then -%>
+    language = "<%= @mod_language %>"
+<% end -%>
+<% if !@mod_enabled.eql?('') then -%>
+    enabled = <%= @mod_enabled %>
+<% end -%>
+<% if !@mod_path.eql?('') then -%>
+    path = "<%= @mod_path %>"
+<% end -%>
+<% if !@mod_params.eql?('') then -%>
+    params = "<%= @mod_params %>"
+<% end -%>
+<% if !@mod_param.eql?('') then
+  @mod_param.each do |lparam|
+    lname = lparam.split('=').first
+    lval = lparam.split('=').last -%>
+    param <%= lname %> {
+      value = <%= lval %>
+    }
+<%
+  end
+end -%>
+  }

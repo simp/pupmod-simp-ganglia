@@ -1,0 +1,24 @@
+<% if !@access_cidrs.eql?('') then
+  @access_cidrs.each do |laccess|
+    if laccess.include?('/') then
+      laddr = laccess.split('/').first
+      lmask = laccess.split('/').last
+    else
+      laddr = laccess
+      lmask = '32'
+    end -%>
+    access {
+      ip = <%= laddr %>
+      mask = <%= lmask %>
+      action = "<%=@access_action %>"
+    }
+<%
+  end
+-%>
+<% else -%>
+    access {
+      ip = <%= @access_ip %>
+      mask = <%= @access_mask %>
+      action = "<%=@access_action %>"
+    }
+<% end -%>
