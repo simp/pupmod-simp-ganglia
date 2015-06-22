@@ -1,14 +1,15 @@
 ---
 fixtures:
+  repositories:
+    apache: "git://github.com/simp/puppetlabs-apache"
+    auditd: "git://github.com/simp/pupmod-simp-auditd"
+    common: "git://github.com/simp/pupmod-simp-common"
+    concat: "git://github.com/simp/pupmod-simp-concat"
+    iptables: "git://github.com/simp/pupmod-simp-iptables"
+    logrotate: "git://github.com/simp/pupmod-simp-logrotate"
+    pki: "git://github.com/simp/pupmod-simp-pki"
+    rsync: "git://github.com/simp/pupmod-simp-rsync"
+    rsyslog: "git://github.com/simp/pupmod-simp-rsyslog"
+    stdlib: "git://github.com/simp/puppetlabs-stdlib"
   symlinks:
     ganglia: "#{source_dir}"
-    apache: "#{source_dir}/../apache"
-    auditd: "#{source_dir}/../auditd"
-    common: "#{source_dir}/../common"
-    concat: "#{source_dir}/../concat"
-    iptables: "#{source_dir}/../iptables"
-    logrotate: "#{source_dir}/../logrotate"
-    pki: "#{source_dir}/../pki"
-    rsync: "#{source_dir}/../rsync"
-    rsyslog: "#{source_dir}/../rsyslog"
-    stdlib: "#{source_dir}/../stdlib"
