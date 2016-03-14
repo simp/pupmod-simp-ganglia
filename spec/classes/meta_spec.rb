@@ -7,6 +7,7 @@ describe 'ganglia::meta' do
 
   let(:facts) {base_facts}
 
+  it { should compile.with_all_deps }
   it { should contain_package('ganglia-gmetad') }
   it { should contain_package('ganglia-gmetad.i386').with_ensure('absent') }
   it { should create_file('/etc/ganglia/gmetad.conf') }

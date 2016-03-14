@@ -11,4 +11,5 @@ fixtures:
     pki: "#{source_dir}/../pki"
     rsync: "#{source_dir}/../rsync"
     rsyslog: "#{source_dir}/../rsyslog"
+    simplib: "#{source_dir}/../simplib"
     stdlib: "#{source_dir}/../stdlib"

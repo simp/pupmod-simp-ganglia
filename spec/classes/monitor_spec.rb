@@ -7,5 +7,6 @@ describe 'ganglia::monitor' do
 
   let(:facts) {base_facts}
 
+  it { should compile.with_all_deps }
   it { should create_file('/etc/ganglia/gmond.conf') }
 end

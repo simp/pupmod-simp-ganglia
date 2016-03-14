@@ -1,7 +1,7 @@
 Summary: Ganglia Puppet Module
 Name: pupmod-ganglia
-Version: 4.1.0
-Release: 6
+Version: 5.0.0
+Release: 0
 License: Apache License, Version 2.0
 Group: Applications/System
 Source: %{name}-%{version}-%{release}.tar.gz
@@ -10,13 +10,13 @@ Requires: pupmod-apache >= 2.0.0-0
 Requires: pupmod-common >= 4.2.0-0
 Requires: pupmod-concat >= 2.1.0-1
 Requires: pupmod-iptables >= 2.0.0-0
-Requires: puppet >= 3.3.0
+Requires: puppet >= 3.8.0
 Requires: puppetlabs-stdlib >= 4.1.0-0.SIMP
-Buildarch: noarch
 Requires: simp-bootstrap >= 4.2.0
+Buildarch: noarch
 Obsoletes: pupmod-ganglia-test
 
-Prefix:"/etc/puppet/environments/simp/modules"
+Prefix: %{_sysconfdir}/puppet/environments/simp/modules
 
 %description
 This Puppet module provides the capability to configure Ganglia.
@@ -45,19 +45,19 @@ mkdir -p %{buildroot}/%{prefix}/ganglia
 
 %files
 %defattr(0640,root,puppet,0750)
-/etc/puppet/environments/simp/modules/ganglia
+%{prefix}/ganglia
 
 %post
 #!/bin/sh
-
-if [ -d /etc/puppet/environments/simp/modules/ganglia/plugins ]; then
-  /bin/mv /etc/puppet/environments/simp/modules/ganglia/plugins /etc/puppet/environments/simp/modules/ganglia/plugins.bak
-fi
 
 %postun
 # Post uninstall stuff
 
 %changelog
+* Mon Mar 14 2016 Trevor Vaughan <tvaughan@onxypoint.com> - 5.0.0-0
+- Updated to be compatible with the Puppet 4 inline template function call
+  requirements.
+
 * Fri Jan 16 2015 Trevor Vaughan <tvaughan@onyxpoint.com> - 4.1.0-6
 - Changed puppet-server requirement to puppet
 
