@@ -1,15 +1,15 @@
----
-fixtures:
-  symlinks:
-    ganglia: "#{source_dir}"
-    apache: "#{source_dir}/../apache"
-    auditd: "#{source_dir}/../auditd"
-    common: "#{source_dir}/../common"
-    concat: "#{source_dir}/../concat"
-    iptables: "#{source_dir}/../iptables"
-    logrotate: "#{source_dir}/../logrotate"
-    pki: "#{source_dir}/../pki"
-    rsync: "#{source_dir}/../rsync"
-    rsyslog: "#{source_dir}/../rsyslog"
-    simplib: "#{source_dir}/../simplib"
-    stdlib: "#{source_dir}/../stdlib"
+--- 
+  fixtures: 
+    symlinks: 
+      apache: "#{source_dir}/../apache"
+      auditd: "#{source_dir}/../auditd"
+      common: "#{source_dir}/../common"
+      concat: "#{source_dir}/../concat"
+      ganglia: "#{source_dir}"
+      iptables: "#{source_dir}/../iptables"
+      logrotate: "#{source_dir}/../logrotate"
+      pki: "#{source_dir}/../pki"
+      rsync: "#{source_dir}/../rsync"
+      rsyslog: "#{source_dir}/../rsyslog"
+      simplib: "#{source_dir}/../simplib"
+      stdlib: "#{source_dir}/../stdlib"
