@@ -1,0 +1,4 @@
+Requires: pupmod-simp-apache >= 2.0.0-0
+Requires: pupmod-simp-simpcat >= 2.1.0-1
+Requires: pupmod-simp-iptables >= 2.0.0-0
+Obsoletes: pupmod-ganglia-test

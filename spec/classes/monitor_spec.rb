@@ -1,12 +1,14 @@
 require 'spec_helper'
 
 describe 'ganglia::monitor' do
-  base_facts = {
-    :hardwaremodel => 'x86_64'
-  }
+  context 'supported operating systems' do
+    on_supported_os.each do |os, facts|
+      context "on #{os}" do
+        let(:facts) { facts }
 
-  let(:facts) {base_facts}
-
-  it { should compile.with_all_deps }
-  it { should create_file('/etc/ganglia/gmond.conf') }
+        it { should compile.with_all_deps }
+        it { should create_file('/etc/ganglia/gmond.conf') }
+      end
+    end
+  end
 end
