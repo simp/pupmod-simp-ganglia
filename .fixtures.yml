@@ -1,16 +1,17 @@
 ---
 fixtures:
   repositories:
-    apache: "git://github.com/simp/puppetlabs-apache"
-    auditd: "git://github.com/simp/pupmod-simp-auditd"
-    common: "git://github.com/simp/pupmod-simp-common"
-    concat: "git://github.com/simp/pupmod-simp-concat"
-    iptables: "git://github.com/simp/pupmod-simp-iptables"
-    logrotate: "git://github.com/simp/pupmod-simp-logrotate"
-    pki: "git://github.com/simp/pupmod-simp-pki"
-    rsync: "git://github.com/simp/pupmod-simp-rsync"
-    rsyslog: "git://github.com/simp/pupmod-simp-rsyslog"
-    simplib: "git://github.com/simp/pupmod-simp-simplib"
-    stdlib: "git://github.com/simp/puppetlabs-stdlib"
+    apache: "https://github.com/simp/pupmod-simp-apache"
+    auditd: "https://github.com/simp/pupmod-simp-auditd"
+    iptables: "https://github.com/simp/pupmod-simp-iptables"
+    logrotate: "https://github.com/simp/pupmod-simp-logrotate"
+    pki: "https://github.com/simp/pupmod-simp-pki"
+    rsync: "https://github.com/simp/pupmod-simp-rsync"
+    rsyslog: "https://github.com/simp/pupmod-simp-rsyslog"
+    simpcat: "https://github.com/simp/pupmod-simp-simpcat"
+    simplib: "https://github.com/simp/pupmod-simp-simplib"
+    stdlib:
+      repo: "https://github.com/simp/puppetlabs-stdlib"
+      branch: "simp-master"
   symlinks:
     ganglia: "#{source_dir}"
