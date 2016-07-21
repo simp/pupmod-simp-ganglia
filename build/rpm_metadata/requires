@@ -1,0 +1,6 @@
+Requires: pupmod-apache >= 2.0.0-0
+Requires: pupmod-simpcat >= 2.1.0-1
+Requires: pupmod-iptables >= 2.0.0-0
+Requires: pupmod-simplib >= 1.2.5
+Requires: puppetlabs-stdlib >= 4.1.0-0.SIMP
+Obsoletes: pupmod-ganglia-test
