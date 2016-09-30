@@ -23,7 +23,7 @@ class ganglia::monitor::cluster (
 ) {
   include 'ganglia::monitor'
 
-  concat_fragment { 'gmond+cluster.conf':
+  simpcat_fragment { 'gmond+cluster.conf':
     content => template('ganglia/gmond/cluster.erb')
   }
 }

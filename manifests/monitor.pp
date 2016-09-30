@@ -41,7 +41,7 @@ class ganglia::monitor {
     require    => Package['ganglia-gmond']
   }
 
-  concat_build { 'gmond':
+  simpcat_build { 'gmond':
     order  => ['*.conf'],
     target => '/etc/ganglia/gmond.conf'
   }
@@ -51,7 +51,7 @@ class ganglia::monitor {
     group     => 'root',
     mode      => '0644',
     audit     => content,
-    subscribe => Concat_build['gmond'],
+    subscribe => Simpcat_build['gmond'],
     notify    => Service['gmond']
   }
 }

@@ -50,7 +50,7 @@ define ganglia::monitor::tcp_accept_channel::add_acl_access(
       dports      => $tcp_accept_port
     }
   }
-  concat_fragment { "gmond_tcp_accept+${tcp_accept_name}_5_$access_file_name":
+  simpcat_fragment { "gmond_tcp_accept+${tcp_accept_name}_5_$access_file_name":
     content => template('ganglia/gmond/acl_access.erb')
   }
 

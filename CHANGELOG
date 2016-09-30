@@ -1,3 +1,6 @@
+* Fri Sep 30 2016 Trevor Vaughan <tvaughan@onyxpoint.com> - 6.0.0-0
+- Updated to work with the deconflicted 'simp_apache' and 'simpcat' modules.
+
 * Mon Mar 14 2016 Trevor Vaughan <tvaughan@onxypoint.com> - 5.0.0-0
 - Updated to be compatible with the Puppet 4 inline template function call
   requirements.

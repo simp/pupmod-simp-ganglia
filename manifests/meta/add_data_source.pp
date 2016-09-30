@@ -34,7 +34,7 @@ define ganglia::meta::add_data_source (
   else {
     $ds_id = $data_source_id
   }
-  concat_fragment { "gmetad+data_source_${name}.conf":
+  simpcat_fragment { "gmetad+data_source_${name}.conf":
     content => template('ganglia/gmetad/data_source.erb')
   }
 }

@@ -24,14 +24,14 @@ define ganglia::monitor::collection_group::conf (
 ) {
   include 'ganglia::monitor::collection_group'
 
-  concat_fragment { "gmond_cg+${name}_0_begin.cg":
+  simpcat_fragment { "gmond_cg+${name}_0_begin.cg":
     content => 'collection_group {
 '
   }
-  concat_fragment { "gmond_cg+${name}_1_conf.cg":
+  simpcat_fragment { "gmond_cg+${name}_1_conf.cg":
     content => template('ganglia/gmond/collection_group.erb')
   }
-  concat_fragment { "gmond_cg+${name}_9_end.cg":
+  simpcat_fragment { "gmond_cg+${name}_9_end.cg":
     content => '}
 '
   }

@@ -24,13 +24,13 @@ define ganglia::web::add_user (
   $realm = ''
 ){
 
-  if !defined(Concat_build['gweb']) {
-    concat_build { 'gweb':
+  if !defined(Simpcat_build['gweb']) {
+    simpcat_build { 'gweb':
       order => ['*.user']
     }
   }
 
-  concat_fragment { "gweb+$name.user":
+  simpcat_fragment { "gweb+$name.user":
     content => template('ganglia/web/user.erb')
   }
 }

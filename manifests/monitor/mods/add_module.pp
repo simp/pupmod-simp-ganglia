@@ -29,7 +29,7 @@ define ganglia::monitor::mods::add_module (
 ) {
   include 'ganglia::monitor::mods'
 
-  concat_fragment { "gmond_mods+${name}.module":
+  simpcat_fragment { "gmond_mods+${name}.module":
     content => template('ganglia/gmond/module.erb')
   }
 }

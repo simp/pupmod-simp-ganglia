@@ -8,8 +8,8 @@
 # * Trevor Vaughan <tvaughan@onyxpoint.com>
 #
 class ganglia::monitor::udp_recv_channel {
-  $fragdir = fragmentdir('gmond')
-  concat_build { 'gmond_udp_recv':
+  $fragdir = simpcat_fragmentdir('gmond')
+  simpcat_build { 'gmond_udp_recv':
     target       => "$fragdir/udp_recv_channel.conf",
     parent_build => 'gmond'
   }
