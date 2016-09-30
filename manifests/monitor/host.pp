@@ -13,7 +13,7 @@ class ganglia::monitor::host (
 ) {
   include 'ganglia::monitor'
 
-  concat_fragment { 'gmond+host.conf':
+  simpcat_fragment { 'gmond+host.conf':
     content => template('ganglia/gmond/host.erb')
   }
 }

@@ -30,15 +30,15 @@ define ganglia::monitor::tcp_accept_channel::conf (
 ) {
   include 'ganglia::monitor::tcp_accept_channel'
 
-  concat_fragment { "gmond_tcp_accept+${name}_0_begin":
+  simpcat_fragment { "gmond_tcp_accept+${name}_0_begin":
     content => 'tcp_accept_channel {
 '
   }
-  concat_fragment { "gmond_tcp_accept+${name}_9_end":
+  simpcat_fragment { "gmond_tcp_accept+${name}_9_end":
     content => '}
 '
   }
-  concat_fragment { "gmond_tcp_accept+${name}_1_conf":
+  simpcat_fragment { "gmond_tcp_accept+${name}_1_conf":
     content => template('ganglia/gmond/tcp_accept_channel.erb')
   }
 

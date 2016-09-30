@@ -8,8 +8,8 @@
 # * Trevor Vaughan <tvaughan@onyxpoint.com>
 #
 class ganglia::monitor::tcp_accept_channel {
-  $fragdir = fragmentdir('gmond')
-  concat_build { 'gmond_tcp_accept':
+  $fragdir = simpcat_fragmentdir('gmond')
+  simpcat_build { 'gmond_tcp_accept':
     target       => "$fragdir/tcp_accept_channel.conf",
     parent_build => 'gmond'
   }
