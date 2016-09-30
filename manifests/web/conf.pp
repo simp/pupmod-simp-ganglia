@@ -117,13 +117,13 @@ class ganglia::web::conf (
     content => template('ganglia/web/apache.erb')
   }
 
-  $outfile = concat_output('gweb')
+  $outfile = simpcat_output('gweb')
   file { $auth_user_file:
     owner   => 'root',
     group   => 'apache',
     mode    => '0640',
     source  => "file://${outfile}",
-    require => Concat_build['gweb']
+    require => Simpcat_build['gweb']
   }
 
   iptables::add_tcp_stateful_listen { 'allow_ganglia':

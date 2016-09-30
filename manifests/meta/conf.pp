@@ -53,7 +53,7 @@ class ganglia::meta::conf (
 ) {
   include 'ganglia::meta'
 
-  concat_fragment { 'gmetad+meta.conf':
+  simpcat_fragment { 'gmetad+meta.conf':
     content => template('ganglia/gmetad/conf.erb')
   }
 }

@@ -30,15 +30,15 @@ define ganglia::monitor::udp_recv_channel::conf (
 ) {
   include 'ganglia::monitor::udp_recv_channel'
 
-  concat_fragment { "gmond_udp_recv+${name}_0_begin":
+  simpcat_fragment { "gmond_udp_recv+${name}_0_begin":
     content => 'udp_recv_channel {
 '
   }
-  concat_fragment { "gmond_udp_recv+${name}_9_end":
+  simpcat_fragment { "gmond_udp_recv+${name}_9_end":
     content => '}
 '
   }
-  concat_fragment { "gmond_udp_recv+${name}_1_conf":
+  simpcat_fragment { "gmond_udp_recv+${name}_1_conf":
     content => template('ganglia/gmond/udp_recv_channel.erb')
   }
 

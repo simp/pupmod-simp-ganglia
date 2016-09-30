@@ -1,6 +1,6 @@
 {
   "name":    "simp-ganglia",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "author":  "simp",
   "summary": "default profiles for core SIMP installations",
   "license": "Apache-2.0",
@@ -10,8 +10,8 @@
   "tags": [ "simp", "profiles"],
   "dependencies": [
     {
-      "name": "simp/apache",
-      "version_requirement": ">= 2.0.0"
+      "name": "simp/simp_apache",
+      "version_requirement": ">= 5.0.0"
     },
     {
       "name": "simp/iptables",
@@ -19,7 +19,7 @@
     },
     {
       "name": "simp/simpcat",
-      "version_requirement": ">= 2.1.0"
+      "version_requirement": ">= 6.0.0"
     },
     {
       "name": "simp/simplib",

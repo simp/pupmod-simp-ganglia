@@ -26,7 +26,7 @@ define ganglia::monitor::collection_group::add_metric (
 ) {
   include 'ganglia::monitor::collection_group'
 
-  concat_fragment { "gmond_cg+${collection_group_name}_5_${name}_metric.cg":
+  simpcat_fragment { "gmond_cg+${collection_group_name}_5_${name}_metric.cg":
     content => template('ganglia/gmond/collection_metric.erb'),
   }
 }
