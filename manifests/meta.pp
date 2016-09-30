@@ -27,7 +27,7 @@ class ganglia::meta {
     }
   }
 
-  concat_build { 'gmetad':
+  simpcat_build { 'gmetad':
     target  => '/etc/ganglia/gmetad.conf',
     order   => ['*.conf'],
     require => File['/etc/ganglia']
@@ -39,7 +39,7 @@ class ganglia::meta {
     mode      => '0644',
     audit     => content,
     notify    => Service['gmetad'],
-    subscribe => Concat_build['gmetad']
+    subscribe => Simpcat_build['gmetad']
   }
 
   # Simply allow blanket IGMP...when you need it, you need it.

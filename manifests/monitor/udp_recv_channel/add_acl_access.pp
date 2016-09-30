@@ -51,7 +51,7 @@ define ganglia::monitor::udp_recv_channel::add_acl_access(
       dports      => $udp_recv_port
     }
   }
-  concat_fragment { "gmond_udp_recv+${udp_recv_name}_5_${access_file_name}":
+  simpcat_fragment { "gmond_udp_recv+${udp_recv_name}_5_${access_file_name}":
     content => template('ganglia/gmond/acl_access.erb')
   }
 

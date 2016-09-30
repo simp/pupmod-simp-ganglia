@@ -1,7 +1,7 @@
 ---
 fixtures:
   repositories:
-    apache: "https://github.com/simp/pupmod-simp-apache"
+    simp_apache: "https://github.com/simp/pupmod-simp-apache"
     auditd: "https://github.com/simp/pupmod-simp-auditd"
     iptables: "https://github.com/simp/pupmod-simp-iptables"
     logrotate: "https://github.com/simp/pupmod-simp-logrotate"

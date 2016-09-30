@@ -21,12 +21,12 @@ define ganglia::monitor::udp_recv_channel::add_acl(
 ) {
   include 'ganglia::monitor::udp_recv_channel'
 
-  concat_fragment { "gmond_udp_recv+${udp_recv_name}_4_acl_begin":
+  simpcat_fragment { "gmond_udp_recv+${udp_recv_name}_4_acl_begin":
     content => "  acl {
     default = \"$acl_default\"
 "
   }
-  concat_fragment { "gmond_udp_recv+${udp_recv_name}_6_acl_end":
+  simpcat_fragment { "gmond_udp_recv+${udp_recv_name}_6_acl_end":
     content => '  }
 '
   }

@@ -39,7 +39,7 @@ class ganglia::monitor::globals (
 ) {
   include 'ganglia::monitor'
 
-  concat_fragment { 'gmond+globals.conf':
+  simpcat_fragment { 'gmond+globals.conf':
     content => template('ganglia/gmond/globals.erb')
   }
 }

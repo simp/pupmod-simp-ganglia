@@ -18,7 +18,7 @@ class ganglia::monitor::add_includes (
 ) {
   include 'ganglia::monitor'
 
-  concat_fragment { 'gmond+includes.conf':
+  simpcat_fragment { 'gmond+includes.conf':
     content => template('ganglia/gmond/includes.erb')
   }
 }

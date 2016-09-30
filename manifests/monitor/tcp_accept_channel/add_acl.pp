@@ -21,12 +21,12 @@ define ganglia::monitor::tcp_accept_channel::add_acl(
 ) {
   include 'ganglia::monitor::tcp_accept_channel'
 
-  concat_fragment { "gmond_tcp_accept+${tcp_accept_name}_4_acl_begin":
+  simpcat_fragment { "gmond_tcp_accept+${tcp_accept_name}_4_acl_begin":
     content => "  acl {
     default = \"$acl_default\"
 "
   }
-  concat_fragment { "gmond_tcp_accept+${tcp_accept_name}_6_acl_end":
+  simpcat_fragment { "gmond_tcp_accept+${tcp_accept_name}_6_acl_end":
     content => '  }
 '
   }

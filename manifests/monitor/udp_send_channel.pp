@@ -29,7 +29,7 @@ define ganglia::monitor::udp_send_channel (
 ) {
   include 'ganglia::monitor'
 
-  concat_fragment { "gmond+${name}_udp_send_channel.conf":
+  simpcat_fragment { "gmond+${name}_udp_send_channel.conf":
     content => template('ganglia/gmond/udp_send_channel.erb')
   }
 }
