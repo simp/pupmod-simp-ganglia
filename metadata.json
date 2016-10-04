@@ -1,33 +1,37 @@
 {
-  "name":    "simp-ganglia",
-  "version": "5.0.0",
-  "author":  "simp",
+  "name": "simp-ganglia",
+  "version": "5.0.1",
+  "author": "simp",
   "summary": "default profiles for core SIMP installations",
   "license": "Apache-2.0",
-  "source":  "https://github.com/simp/pupmod-simp-ganglia",
+  "source": "https://github.com/simp/pupmod-simp-ganglia",
   "project_page": "https://github.com/simp/pupmod-simp-ganglia",
-  "issues_url":   "https://simp/project.atlassian.net",
-  "tags": [ "simp", "profiles"],
+  "issues_url": "https://simp-project.atlassian.net",
+  "tags": [
+    "simp",
+    "ganglia",
+    "monitoring"
+  ],
   "dependencies": [
     {
       "name": "simp/apache",
-      "version_requirement": ">= 2.0.0"
+      "version_requirement": ">= 4.1.6 < 5.0.0"
     },
     {
       "name": "simp/iptables",
-      "version_requirement": ">= 2.0.0"
+      "version_requirement": ">= 4.1.4 < 5.0.0"
     },
     {
       "name": "simp/simpcat",
-      "version_requirement": ">= 2.1.0"
+      "version_requirement": ">= 5.0.1 < 6.0.0"
     },
     {
       "name": "simp/simplib",
-      "version_requirement": ">= 4.2.0"
+      "version_requirement": ">= 1.3.1 < 2.0.0"
     },
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 4.1.0"
+      "version_requirement": ">= 4.9.0 < 5.0.0"
     }
   ],
   "operatingsystem_support": [
