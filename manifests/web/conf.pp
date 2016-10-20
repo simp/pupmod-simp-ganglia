@@ -113,8 +113,14 @@ class ganglia::web::conf (
 ) {
   include 'ganglia::web'
 
-  apache::add_site { 'ganglia':
+  simp_apache::add_site { 'ganglia':
     content => template('ganglia/web/apache.erb')
+  }
+
+  if !defined(Simpcat_build['gweb']) {
+    simpcat_build { 'gweb':
+      order => ['*.user']
+    }
   }
 
   $outfile = simpcat_output('gweb')
