@@ -113,7 +113,7 @@ class ganglia::web::conf (
 ) {
   include 'ganglia::web'
 
-  apache::add_site { 'ganglia':
+  simp_apache::add_site { 'ganglia':
     content => template('ganglia/web/apache.erb')
   }
 
