@@ -6,9 +6,9 @@ describe 'ganglia::web' do
       context "on #{os}" do
         let(:facts) { facts }
 
-        it { should compile.with_all_deps }
-        it { should contain_package('gweb') }
-        it { should contain_package('php') }
+        it { is_expected.to compile.with_all_deps }
+        it { is_expected.to contain_package('gweb') }
+        it { is_expected.to contain_package('php') }
       end
     end
   end
