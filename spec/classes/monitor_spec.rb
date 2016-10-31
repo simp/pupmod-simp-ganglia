@@ -6,8 +6,8 @@ describe 'ganglia::monitor' do
       context "on #{os}" do
         let(:facts) { facts }
 
-        it { should compile.with_all_deps }
-        it { should create_file('/etc/ganglia/gmond.conf') }
+        it { is_expected.to compile.with_all_deps }
+        it { is_expected.to create_file('/etc/ganglia/gmond.conf') }
       end
     end
   end

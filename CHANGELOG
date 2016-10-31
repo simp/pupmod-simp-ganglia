@@ -1,3 +1,6 @@
+* Mon Oct 31 2016 Nick Markowski <nmarkowski@keywcorp.com> - 5.0.1-0
+- Included a required concat_build(gweb), for the $auth_user_fil
+
 * Mon Mar 14 2016 Trevor Vaughan <tvaughan@onxypoint.com> - 5.0.0-0
 - Updated to be compatible with the Puppet 4 inline template function call
   requirements.

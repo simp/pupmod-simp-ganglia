@@ -4,6 +4,18 @@ fixtures:
     apache:
       repo: https://github.com/simp/pupmod-simp-apache
       branch: 5.X
+    augeasproviders_core:
+      repo: https://github.com/simp/augeasproviders_core
+      branch: 5.X
+    augeasproviders_grub:
+      repo: https://github.com/simp/augeasproviders_grub
+      branch: 5.X
+    compliance:
+      repo: https://github.com/simp/pupmod-simp-compliance_markup
+      branch: 5.X
+    haveged:
+      repo: https://github.com/simp/puppet-haveged
+      branch: 5.X
     auditd:
       repo: https://github.com/simp/pupmod-simp-auditd
       branch: 5.X

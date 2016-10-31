@@ -117,6 +117,12 @@ class ganglia::web::conf (
     content => template('ganglia/web/apache.erb')
   }
 
+  if !defined(Concat_build['gweb']) {
+    concat_build { 'gweb':
+      order => ['*.user']
+    }
+  }
+
   $outfile = concat_output('gweb')
   file { $auth_user_file:
     owner   => 'root',
