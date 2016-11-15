@@ -1,8 +1,8 @@
 Obsoletes: pupmod-ganglia-test
 Requires: pupmod-puppetlabs-stdlib < 5.0.0-0
 Requires: pupmod-puppetlabs-stdlib >= 4.9.0-0
-Requires: pupmod-simp-iptables < 5.0.0-0
-Requires: pupmod-simp-iptables >= 4.1.5-0
+Requires: pupmod-simp-iptables < 6.0.0-0
+Requires: pupmod-simp-iptables >= 5.0.0-0
 Requires: pupmod-simp-simp_apache < 6.0.0-0
 Requires: pupmod-simp-simp_apache >= 5.0.0-0
 Requires: pupmod-simp-simpcat < 7.0.0-0

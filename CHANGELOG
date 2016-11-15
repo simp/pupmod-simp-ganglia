@@ -1,3 +1,6 @@
+* Tue Nov 15 2016 Liz Nemsick <lnemsick.simp@gmail.com> - 6.0.0-0
+- Updated iptables dependency version
+
 * Mon Oct 31 2016 Nick Markowski <nmarkowski@keywcorp.com> - 6.0.0-0
 - Converted apache::add_site to simp_apache::add_site
 - Included a required simpcat_build(gweb), for the $auth_user_file
