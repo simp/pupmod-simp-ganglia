@@ -4,7 +4,7 @@
   "author": "SIMP Team",
   "summary": "default profiles for core SIMP installations",
   "license": "Apache-2.0",
-  "source":  "https://github.com/simp/pupmod-simp-ganglia",
+  "source": "https://github.com/simp/pupmod-simp-ganglia",
   "project_page": "https://github.com/simp/pupmod-simp-ganglia",
   "issues_url": "https://simp-project.atlassian.net",
   "tags": [
