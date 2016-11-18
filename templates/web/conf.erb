@@ -9,7 +9,7 @@ include_once $conf['ganglia_dir'] . "/version.php";
 
 #
 # 'readonly': No authentication is required.  All users may view all resources.  No edits are allowed.
-#  'enabled': Guest users may view public clusters.  Login is required to make changes.  
+#  'enabled': Guest users may view public clusters.  Login is required to make changes.
 #             An administrator must configure an authentication scheme and ACL rules.
 # 'disabled': Guest users may perform any actions, including edits.  No authentication is required.
 $conf['auth_system'] = '<%= @auth_system %>';
@@ -48,7 +48,7 @@ $conf['rrdtool'] = "<%= @rrdtool %>";
 # Render graphs with rrdtool's --slope-mode option
 $conf['rrdtool_slope_mode'] = <%= @rrdtool_slope_mode %>;
 
-# If rrdcached is being used, this argument must specify the 
+# If rrdcached is being used, this argument must specify the
 # socket to use.
 #
 # gweb only requires, and should use, the low-privilege socket
@@ -65,7 +65,7 @@ $conf['graphreport_stats'] = <%= @graphreport_stats %>;
 #
 # If you want to grab data from a different ganglia source specify it here.
 # Although, it would be strange to alter the IP since the Round-Robin
-# databases need to be local to be read. 
+# databases need to be local to be read.
 #
 $conf['ganglia_ip'] = "<%= @ganglia_ip %>";
 $conf['ganglia_port'] = <%= @ganglia_port %>;
@@ -73,7 +73,7 @@ $conf['ganglia_port'] = <%= @ganglia_port %>;
 #
 # The maximum number of dynamic graphs to display.  If you set this
 # to 0 (the default) all graphs will be shown.  This option is
-# helpful if you are viewing the web pages from a browser with a 
+# helpful if you are viewing the web pages from a browser with a
 # small pipe.
 #
 $conf['max_graphs'] = <%= @max_graphs %>;
@@ -98,7 +98,7 @@ $conf['metriccols'] = <%= @metriccols %>;
 #
 $conf['show_meta_snapshot'] = "<%= @show_meta_snapshot %>";
 
-# 
+#
 # The default refresh frequency on pages.
 #
 $conf['default_refresh'] = <%= @default_refresh %>;
@@ -156,7 +156,7 @@ $conf['load_scale'] = <%= @load_scale %>;
 $conf['default_metric_color'] = "<%= @default_metric_color %>";
 
 #
-# Default metric 
+# Default metric
 #
 $conf['default_metric'] = "<%= @default_metric %>";
 
@@ -174,7 +174,7 @@ $conf['strip_domainname'] = <%= @strip_domainname %>;
 # Enable Zoom support on graphs
 $conf['zoom_support'] = <%= @zoom_support %>;
 
-# 
+#
 # Time ranges
 # Each value is the # of seconds in that range.
 #
@@ -199,7 +199,7 @@ $conf['graphite_url_base'] = "<%= @graphite_url_base %>";
 $conf['graphite_rrd_dir'] = "<%= @graphite_rrd_dir %>";
 
 # One of the bottlenecks is that to get individual metrics we query gmetad which
-# returns every single host and all the metrics. If you have lots of hosts and lots of 
+# returns every single host and all the metrics. If you have lots of hosts and lots of
 # checks this may be quite heavy so you may want to cache data
 $conf['cachedata'] = <%= @cachedata %>;
 $conf['cachefile'] = "<%= @cachefile %>";
