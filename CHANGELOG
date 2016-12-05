@@ -1,3 +1,6 @@
+* Thu Dec 01 2016 Trevor Vaughan <tvaughan@onyxpoint.com> - 6.1.0-0
+- Dependency update for simp_apache
+
 * Mon Nov 21 2016 Chris Tessmer <ctessmer@onyxpoint.com> - 6.0.0-0
 - Compliance Map removal and general housekeeping
 
